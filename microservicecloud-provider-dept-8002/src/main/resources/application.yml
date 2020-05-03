@@ -1,0 +1,33 @@
+#服务端口
+server:
+  port: 8002
+#mybatis配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml                       # mapper映射文件
+    
+spring:
+  #spring应用名称
+  application:
+    name: microservicecloud-dept
+    #数据库配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test2?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      #defaultZone: http://localhost:7001/eureka
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: microservicecloud-dept-8002
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+info:
+  app.name: 罗杰-microservicecloud-dept
+  company.name: www.ecology.com
+  build.artifactId: $project.artifactId$
+  build.version: ${project.version}
