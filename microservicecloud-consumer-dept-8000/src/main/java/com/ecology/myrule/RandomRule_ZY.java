@@ -7,16 +7,12 @@ import com.netflix.loadbalancer.Server;
 
 import java.util.List;
 
-public class RandomRule_ZY extends AbstractLoadBalancerRule
-{
+public class RandomRule_ZY extends AbstractLoadBalancerRule {
 
 	// total = 0 // 当total==5以后，我们指针才能往下走，
 	// index = 0 // 当前对外提供服务的服务器地址，
 	// total需要重新置为零，但是已经达到过一个5次，我们的index = 1
 	// 分析：我们5次，但是微服务只有8001 8002 8003 三台，OK？
-	// 
-	
-	
 	private int total = 0; 			// 总共被调用的次数，目前要求每台被调用5次
 	private int currentIndex = 0;	// 当前提供服务的机器号
 
